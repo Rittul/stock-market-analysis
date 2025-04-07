@@ -63,3 +63,20 @@ plt.show()
 
 # %%
 
+
+# %% [markdown]
+# ### Using Linear Regression
+
+# %%
+x = data[['Open','High','Low','Prev Close']]  # Last parameter
+y = data['Close']
+
+# %%
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+# %%
+train_size = int(len(data)*0.8)
+x_train, x_test = x[:train_size], x[train_size:]
+y_train, y_test = y[:train_size], y[train_size:]
+dates_train, dates_test = data['Date'][:train_size], data['Date'][train_size:]
