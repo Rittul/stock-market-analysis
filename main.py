@@ -80,3 +80,12 @@ train_size = int(len(data)*0.8)
 x_train, x_test = x[:train_size], x[train_size:]
 y_train, y_test = y[:train_size], y[train_size:]
 dates_train, dates_test = data['Date'][:train_size], data['Date'][train_size:]
+
+
+# %%
+model = LinearRegression()
+model.fit(x_train,y_train)
+
+# %%
+y_pred_train = model.predict(x_train)
+y_pred_test = model.predict(x_test)
