@@ -89,3 +89,13 @@ model.fit(x_train,y_train)
 # %%
 y_pred_train = model.predict(x_train)
 y_pred_test = model.predict(x_test)
+
+
+# %%
+plt.figure(figsize=(12, 6))
+
+plt.plot(dates_train, y_train, 'b', label='Actual (Training)', alpha=0.7)
+plt.plot(dates_train, y_pred_train, 'r--', label='Predicted (Training)', alpha=0.7)
+
+plt.plot(dates_test, y_test, 'g-', label='Actual (Testing)', alpha=0.7)
+plt.plot(dates_test, y_pred_test, 'y--', label='Predicted (Testing)', alpha=0.7)
