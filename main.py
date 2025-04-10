@@ -99,3 +99,24 @@ plt.plot(dates_train, y_pred_train, 'r--', label='Predicted (Training)', alpha=0
 
 plt.plot(dates_test, y_test, 'g-', label='Actual (Testing)', alpha=0.7)
 plt.plot(dates_test, y_pred_test, 'y--', label='Predicted (Testing)', alpha=0.7)
+
+
+plt.xlabel('Date')
+plt.ylabel('Closing Price')
+plt.title('Actual vs Predicted Closing Prices Over Time')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# %%
+from sklearn.metrics import mean_squared_error, r2_score
+lrmse = mean_squared_error(y_test, y_pred_test)
+lrrmse = np.sqrt(lrmse)
+lrr2 = r2_score(y_test, y_pred_test)
+
+print("Test Set Performance:")
+print(f"Mean Squared Error: {lrmse:.2f}")
+print(f"Root Mean Squared Error: {lrrmse:.2f}")
+print(f"R-squared Score: {lrr2:.2f}")
